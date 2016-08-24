@@ -1,0 +1,20 @@
+!pvefindaddr j -r esp -n -o
+
+j = look for “jmp” (could be jmp, call, or push + ret)
+-r = register to look for
+-n = no null bytes
+-o = no OS dll’s (aslr, but also… just OS dll’s -> transportability issue)
+
+
+It will crash anyway, because the program not just reads the whole "AAAAAAAAAAAA" from the m3u, but also appends the current working directory where the m3u file was placed. The buffer will look like something like this:
+
+buffer begin..c:\test\AAAAAAAAAAAAAAAAAAA..shellcode…end of buffer..return address
+
+Take care of the offsets it may change depending on the current directory ;)
+
+> my first dir name was corelan, then it was changed to part2, so the position
+had to be incremented by 2
+
+dont forget the nop sled for the instructions to be decoded correctly
+
+(shellcode : excluded characters 0x00, 0xff, 0xac, 0xca)
