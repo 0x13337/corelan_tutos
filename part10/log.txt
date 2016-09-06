@@ -1,0 +1,4 @@
+!mona noaslr
+!mona rop -m "kernel32,msvcrt,MSRMfilter03" -split -cp nonull
+
+XP SP3
